@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "../public//assets/fonts/stylesheet.css";
+
+.font-hero {
+    font-family: "Hero New";
+}
