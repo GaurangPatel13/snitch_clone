@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FeaturedCategory from "../Components/FeaturedCategory";
 import Hero from "../Components/Hero";
 import HomePopup from "../Components/HomePopup";
 import PincodePopup from "../Components/PincodePopup";
-import PincodeAreas from "../Components/PincodeAreas"; // Import the new component
+import PincodeAreas from "../Components/PincodeAreas";
 import ShopYourSize from "../Components/ShopYourSize";
+import SearchBar from "../Components/SearchBar";
+import ImageSlider from "../Components/ImageSlider";
+import MarqueeBar from "../Components/MarqueeBar";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -12,36 +15,55 @@ const Home = () => {
   const [areas, setAreas] = useState([]);
   const [selectedArea, setSelectedArea] = useState("");
 
+  // Load from localStorage on first load
+  useEffect(() => {
+    const savedPin = localStorage.getItem("pin");
+    const savedArea = localStorage.getItem("selectedArea");
+
+    if (savedPin) setPin(savedPin);
+    if (savedArea) setSelectedArea(savedArea);
+  }, []);
+
+  // Save pin and area to localStorage
+  useEffect(() => {
+    if (pin) localStorage.setItem("pin", pin);
+    if (selectedArea) localStorage.setItem("selectedArea", selectedArea);
+  }, [pin, selectedArea]);
+
   const handlePincodeSubmit = (enteredPin, areaList) => {
     if (enteredPin) {
       setPin(enteredPin);
       setAreas(areaList);
     }
-    setShowPopup(false); // Close popup after submit
+    setShowPopup(false);
   };
 
   const handleAreaSelect = (areaName) => {
     setSelectedArea(areaName);
+    setAreas([]);
   };
 
   return (
     <div className="max-w-lg mx-auto font-hero">
       <HomePopup />
 
+      <div className="relative">
+        <ImageSlider />
+        <SearchBar
+          onClick={() => setShowPopup(true)}
+          selectedArea={selectedArea}
+        />
+        <MarqueeBar />
+      </div>
+
       {showPopup && <PincodePopup onSubmit={handlePincodeSubmit} />}
-      
-      <Hero onClick={() => setShowPopup(true)} />
 
-      {/* Show PincodeAreas if pincode is submitted and no area is selected yet */}
       {!showPopup && areas.length > 0 && !selectedArea && (
-        <PincodeAreas pin={pin} areas={areas} onSelectArea={handleAreaSelect} />
-      )}
-
-      {/* Optionally show success message once area is selected */}
-      {selectedArea && (
-        <div className="p-4 bg-green-50 text-green-800 border border-green-300 rounded my-4">
-          ✅ Delivery available in <strong>{selectedArea}</strong> ({pin})
-        </div>
+        <PincodeAreas
+          pin={pin}
+          areas={areas}
+          onSelectArea={handleAreaSelect}
+        />
       )}
 
       <FeaturedCategory />
