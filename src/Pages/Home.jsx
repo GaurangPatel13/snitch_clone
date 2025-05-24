@@ -50,7 +50,7 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto font-hero bg-white">
+    <div className="sm:max-w-lg w-full mx-auto font-hero bg-white">
       <HomePopup />
 
       <div className="relative">

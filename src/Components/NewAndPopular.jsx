@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import ButtonComponent from "./ButtonComponent";
 import ProductCard from "./ProductCard";
-import img1 from '../../public/assets/Products/img1.jpg'
-import img3 from '../../public/assets/Products/img2.jpg'
-import img2 from '../../public/assets/Products/img3.jpg'
-import img4 from '../../public/assets/Products/img4.jpg'
-import img5 from '../../public/assets/Products/img5.webp'
+import img1 from '/assets/Products/img1.jpg'
+import img3 from '/assets/Products/img2.jpg'
+import img2 from '/assets/Products/img3.jpg'
+import img4 from '/assets/Products/img4.jpg'
+import img5 from '/assets/Products/img5.webp'
+import img6 from '/assets/Products/img6.jpg'
 
 const NewAndPopular = () => {
   const [active, setActive] = useState(0);
@@ -324,13 +325,13 @@ const NewAndPopular = () => {
     },
 
     // ALL (img6)
-    { id: 41, name: "Polo Shirt", category: "all", price: 1399, image: "img6" },
+    { id: 41, name: "Polo Shirt", category: "all", price: 1399, image: img6 },
     {
       id: 42,
       name: "Bomber Jacket",
       category: "all",
       price: 2999,
-      image: "img6",
+      image: img6,
       colorOptions: ["#09286F", "#66673E"],
     },
     {
@@ -338,14 +339,14 @@ const NewAndPopular = () => {
       name: "Denim Jacket",
       category: "all",
       price: 2799,
-      image: "img6",
+      image: img6,
     },
     {
       id: 44,
       name: "Overshirt",
       category: "all",
       price: 2199,
-      image: "img6",
+      image: img6,
       colorOptions: ["#5C4033"],
     },
     {
@@ -353,38 +354,38 @@ const NewAndPopular = () => {
       name: "Graphic Hoodie",
       category: "all",
       price: 2499,
-      image: "img6",
+      image: img6,
     },
     {
       id: 46,
       name: "Puffer Vest",
       category: "all",
       price: 1999,
-      image: "img6",
+      image: img6,
     },
     {
       id: 47,
       name: "Athleisure Joggers",
       category: "all",
       price: 1599,
-      image: "img6",
+      image: img6,
     },
     {
       id: 48,
       name: "Track Jacket",
       category: "all",
       price: 2299,
-      image: "img6",
+      image: img6,
     },
     {
       id: 49,
       name: "Bucket Hat",
       category: "all",
       price: 999,
-      image: "img6",
+      image: img6,
       colorOptions: ["#F77F00"],
     },
-    { id: 50, name: "Sling Bag", category: "all", price: 1199, image: "img6" },
+    { id: 50, name: "Sling Bag", category: "all", price: 1199, image: img6 },
   ];
 
     const btnText = ["all", "shirts", "trousers", "t-shirts", "jeans", "shoes"];
@@ -398,7 +399,7 @@ const NewAndPopular = () => {
       <h1 className="uppercase text-xl text-black font-bold text-center">
         new and popular
       </h1>
-      <div className="flex items-center gap-3 justify-between px-4">
+      <div className="flex items-center md:gap-3 gap-2 justify-between md:px-4 px-2 overflow-auto">
         {btnText.map((item, index) => (
           <ButtonComponent
             key={index}
