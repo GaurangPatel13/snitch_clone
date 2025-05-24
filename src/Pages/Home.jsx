@@ -8,6 +8,12 @@ import ShopYourSize from "../Components/ShopYourSize";
 import SearchBar from "../Components/SearchBar";
 import ImageSlider from "../Components/ImageSlider";
 import MarqueeBar from "../Components/MarqueeBar";
+import NewAndPopular from "../Components/NewAndPopular";
+import MoreAbout from "../Components/MoreAbout";
+import Experience from "../Components/Experience";
+import CollectionsOmnichannel from "../Components/CollectionsOmnichannel";
+import WhyShop from "../Components/WhyShop";
+import Footer from "../Components/Footer";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -44,7 +50,7 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto font-hero">
+    <div className="max-w-lg mx-auto font-hero bg-white">
       <HomePopup />
 
       <div className="relative">
@@ -68,6 +74,14 @@ const Home = () => {
 
       <FeaturedCategory />
       <ShopYourSize />
+      <NewAndPopular />
+      <div className="bg-[#F7EEE8]">
+        <MoreAbout />
+        <Experience />
+        <CollectionsOmnichannel />
+        <WhyShop />
+        <Footer />
+      </div>
     </div>
   );
 };
