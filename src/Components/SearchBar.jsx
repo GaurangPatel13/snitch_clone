@@ -7,6 +7,12 @@ const SearchBar = ({ onClick, selectedArea }) => {
 
   const pin = localStorage.getItem("pin");
 
+  const reset = () => {
+    localStorage.removeItem("pin");
+    localStorage.removeItem("selectedArea");
+    window.location.reload();
+  }
+
   return (
     <div className="absolute top-4 text-white left-1/2 transform -translate-x-1/2 w-full max-w-lg px-4">
       <div className="p-3 rounded flex flex-col space-y-2">
@@ -19,6 +25,9 @@ const SearchBar = ({ onClick, selectedArea }) => {
             <IoChevronDown />
           </div>
         </div>
+        {pin && (
+          <span className="text-xs" onClick={() => reset()}>reset</span>
+        )}
         <div className="flex items-center gap-2 text-4xl border p-2">
           <CiSearch />
           <input
