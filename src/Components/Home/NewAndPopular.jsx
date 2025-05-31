@@ -8,7 +8,7 @@ import img4 from '/assets/Products/img4.jpg'
 import img5 from '/assets/Products/img5.webp'
 import img6 from '/assets/Products/img6.jpg'
 
-const NewAndPopular = () => {
+const NewAndPopular = ({title=''}) => {
   const [active, setActive] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -397,7 +397,7 @@ const NewAndPopular = () => {
   return (
     <div className="py-10 space-y-5">
       <h1 className="uppercase text-xl text-black font-bold text-center">
-        new and popular
+        {title}
       </h1>
       <div className="flex items-center md:gap-3 gap-2 justify-between md:px-4 px-2 overflow-auto">
         {btnText.map((item, index) => (

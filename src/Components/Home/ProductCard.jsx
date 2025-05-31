@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
 
@@ -11,7 +12,8 @@ const ProductCard = ({ product }) => {
     };
     
   return (
-    <div className="max-h-[30rem] max-w-[300px] h-full shadow relative">
+    <Link to={'/search'}>
+      <div className="max-h-[30rem] max-w-[300px] h-full shadow relative cursor-pointer">
       <div className="flex items-center justify-center w-full">
         <img src={product.image} className="h-full object-cover" alt="" />
       </div>
@@ -37,6 +39,7 @@ const ProductCard = ({ product }) => {
               {fav === true ? <FaHeart className="text-red-600" /> : <CiHeart className="text-red-500" />}
           </button>
     </div>
+    </Link>
   );
 };
 

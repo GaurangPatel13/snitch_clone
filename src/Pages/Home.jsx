@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import FeaturedCategory from "../Components/FeaturedCategory";
-import Hero from "../Components/Hero";
-import HomePopup from "../Components/HomePopup";
-import PincodePopup from "../Components/PincodePopup";
-import PincodeAreas from "../Components/PincodeAreas";
-import ShopYourSize from "../Components/ShopYourSize";
-import SearchBar from "../Components/SearchBar";
-import ImageSlider from "../Components/ImageSlider";
-import MarqueeBar from "../Components/MarqueeBar";
-import NewAndPopular from "../Components/NewAndPopular";
-import MoreAbout from "../Components/MoreAbout";
-import Experience from "../Components/Experience";
-import CollectionsOmnichannel from "../Components/CollectionsOmnichannel";
-import WhyShop from "../Components/WhyShop";
-import Footer from "../Components/Footer";
+import FeaturedCategory from "../Components/Home/FeaturedCategory";
+import Hero from "../Components/Home/Hero";
+import HomePopup from "../Components/Home/HomePopup";
+import PincodePopup from "../Components/Home/PincodePopup";
+import PincodeAreas from "../Components/Home/PincodeAreas";
+import ShopYourSize from "../Components/Home/ShopYourSize";
+import SearchBar from "../Components/Home/SearchBar";
+import ImageSlider from "../Components/Home/ImageSlider";
+import MarqueeBar from "../Components/Home/MarqueeBar";
+import NewAndPopular from "../Components/Home/NewAndPopular";
+import MoreAbout from "../Components/Home/MoreAbout";
+import Experience from "../Components/Home/Experience";
+import CollectionsOmnichannel from "../Components/Home/CollectionsOmnichannel";
+import WhyShop from "../Components/Home/WhyShop";
+import Footer from "../Components/Home/Footer";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -74,14 +74,8 @@ const Home = () => {
 
       <FeaturedCategory />
       <ShopYourSize />
-      <NewAndPopular />
-      <div className="bg-[#F7EEE8]">
-        <MoreAbout />
-        <Experience />
-        <CollectionsOmnichannel />
-        <WhyShop />
-        <Footer />
-      </div>
+      <NewAndPopular title="New and popular" />
+      
     </div>
   );
 };
